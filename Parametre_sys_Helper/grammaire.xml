@@ -1,0 +1,94 @@
+<grammar>
+	<fields>
+		<type name='Parametre'>
+			<text>
+				L'enregistrement {{__NOM__}} ("{{__DESC__}}") mnemonique "{{__DEFINE__}}" type de fichiers parametres "{{__TYPE_FICHIER__}}" qui contient les interfaces :
+				L'interface "{{__VERSION__}}" qui est definit dans le composant parametre contient les donnees suivantes :
+			</text>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Mnemonique' key='{{__DEFINE__}}' output=''/>
+			<field ismendatory='true' input='combobox' label='Type de fichiers' key='{{__TYPE_FICHIER__}}' output=''>
+				<option text='COMPOSANT_PARAMETRE'>
+				<option text='APPLICATIFS'>
+				<option text='BOOT'>
+				<option text='FPGA'>
+				<option text='TECHNIQUES'>
+			</field>
+			<field ismendatory='true' input='textbox' label='Version' key='{{__VERSION__}}' output=''/>
+		</type>
+		<type name='Champ Numerique'>
+			<text>
+				La balise {{__NOM__}} de type Numeric a pour description "{{__DESC__}}", une taille de "{{__TAILLE__}}"{{__CLE__}}{{__FORMAT_NUMERIC__}}{{__DEFINE__}}{{__FONCTION__}}
+			</text>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE__}}' output=''/>
+			<field ismendatory='false' input='textbox' label='Cle' key='{{__CLE__}}' output=''/>
+			<field ismendatory='false' input='combobox' label='Format' key='{{__FORMAT_NUMERIC__}}' output=' et un format numerique "{{__FORMAT_NUMERIC__}}"'>
+				<option text='DEC'>
+				<option text='BCD'>
+			</field>
+			<field ismendatory='false' input='textbox' label='' key='{{__DEFINE__}}' output=' defini par la constante"{{__DEFINE__}}"'/>
+			<field ismendatory='false' input='checkbox' label='' key='{{__FONCTION__}}' output=''>
+				<option text=' ne fournira pas de fonction de recuperation de liste'>
+				<option text=' ne fournira pas de fonction de recuperation de la donnee'>
+				<option text=' ne fournira pas de fonction dichotomique'>
+			</field>
+		</type>
+		<type name='Champ Texte'>
+			<text>
+				La balise {{__NOM__}} de type Text a pour description "{{__DESC__}}",{{__TAILLE0__}}{{__CLE__}}{{__DEFINE__}}{{__FONCTION__}}
+			</text>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+			<field ismendatory='true' input='radiobox' label='Type' key='{{__TAILLE0__}}' output=''>
+				<option text='une taille de "{{__TAILLE__}}"'>
+				<option text='une longueur de champs "{{__TAILLE__}}"\n et un format chaine de caracteres "{{__CHARSET__}}"'>
+			</field>
+			<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE__}}' output=''/>
+			<field ismendatory='false' input='combobox' label='Format' key='{{__CHARSET__}}' output=''>
+				<option text=''>
+			</field>
+			<field ismendatory='false' input='textbox' label='' key='{{__CLE__}}' output=' et la cle est "{{__CLE__}}"'/>
+			<field ismendatory='false' input='textbox' label='' key='{{__DEFINE__}}' output=' defini par la constante"{{__DEFINE__}}"'/>
+			<field ismendatory='false' input='checkbox' label='' key='{{__FONCTION__}}' output=''>
+				<option text=' ne fournira pas de fonction de recuperation de liste'>
+				<option text=' ne fournira pas de fonction de recuperation de la donnee'>
+				<option text=' ne fournira pas de fonction dichotomique'>
+			</field>
+		</type>
+		<type name='Champ Date'>
+			<text>
+				La balise {{__NOM__}} de type Date a pour description "{{__DESC__}}" et un format date "{{__FORMAT_DATE__}}"{{__CLE__}}{{__FONCTION__}}
+			</text>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+			<field ismendatory='true' input='combobox' label='Format' key='{{__FORMAT_DATE__}}' output=''>
+				<option text='YYYYMMDD'>
+			</field>
+			<field ismendatory='false' input='textbox' label='' key='{{__CLE__}}' output=' et la cle est "{{__CLE__}}"'/>
+			<field ismendatory='false' input='checkbox' label='' key='{{__FONCTION__}}' output=''>
+				<option text=' ne fournira pas de fonction de recuperation de liste'>
+				<option text=' ne fournira pas de fonction de recuperation de la donnee'>
+				<option text=' ne fournira pas de fonction dichotomique'>
+			</field>
+		</type>
+		<type name=''>
+			<text>
+				
+			</text>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+			<field ismendatory='true' input='textbox' label='' key='{{}}' output=''/>
+			<field ismendatory='true' input='combobox' label='' key='{{}}' output=''>
+				<option text=''>
+			</field>
+			<field ismendatory='false' input='checkbox' label='' key='{{__FONCTION__}}' output=''>
+				<option text=' ne fournira pas de fonction de recuperation de liste'>
+				<option text=' ne fournira pas de fonction de recuperation de la donnee'>
+				<option text=' ne fournira pas de fonction dichotomique'>
+			</field>
+		</type>
+	</fields>
+</grammar>
