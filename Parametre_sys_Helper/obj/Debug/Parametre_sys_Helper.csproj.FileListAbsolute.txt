@@ -1,0 +1,11 @@
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\Parametre_sys_Helper.exe.config
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\Parametre_sys_Helper.exe
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\Parametre_sys_Helper.pdb
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.Form1.resources
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.Properties.Resources.resources
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.csproj.GenerateResource.cache
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.csproj.CoreCompileInputs.cache
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.exe
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.pdb
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.ConfigForm.resources
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\grammaire.xml
