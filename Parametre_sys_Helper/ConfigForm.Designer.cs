@@ -55,8 +55,12 @@
             // tvParametre
             // 
             this.tvParametre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvParametre.FullRowSelect = true;
+            this.tvParametre.HideSelection = false;
             this.tvParametre.Location = new System.Drawing.Point(0, 0);
             this.tvParametre.Name = "tvParametre";
+            this.tvParametre.PathSeparator = " \\ ";
+            this.tvParametre.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tvParametre.Size = new System.Drawing.Size(224, 487);
             this.tvParametre.TabIndex = 0;
             // 

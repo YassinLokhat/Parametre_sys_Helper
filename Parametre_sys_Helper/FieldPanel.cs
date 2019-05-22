@@ -61,6 +61,8 @@ namespace Parametre_sys_Helper
 
     public class Field : Panel
     {
+        public static Color ErrorColor = Color.Yellow;
+
         public bool IsMendatory { get; set; }
         public string Input { get; set; }
         public string Label { get; set; }
@@ -81,11 +83,12 @@ namespace Parametre_sys_Helper
             if (_Output == "")
                 _Output = Key;
             Label = xmlField.Attributes["label"].Value;
-            label = new Label();
             if (IsMendatory)
-                label.Text = Label != "" ? "*" + Label + " :" : "*";
+                Label = Label != "" ? "*" + Label + " :" : "*";
             else
-                label.Text = Label != "" ? Label + " :" : "";
+                Label = Label != "" ? Label + " :" : "";
+            label = new Label();
+            label.Text = Label;
             label.Location = new Point(0, 0);
             label.Size = new Size(150, label.Height);
             this.Controls.Add(label);
@@ -149,8 +152,13 @@ namespace Parametre_sys_Helper
 
         public override string GetOutput()
         {
+            textBox.BackColor = Color.White;
+
             if (IsMendatory && textBox.Text == "")
+            {
+                textBox.BackColor = ErrorColor;
                 throw new Exception("Le champ \"" + Label + "\" ne peut pas être vide.");
+            }
             return textBox.Text != "" ? _Output.Replace(Key, textBox.Text) : "";
         }
 
@@ -184,8 +192,12 @@ namespace Parametre_sys_Helper
 
         public override string GetOutput()
         {
+            comboBox.BackColor = Color.White;
             if (IsMendatory && !comboBox.Items.Contains(comboBox.Text))
+            {
+                comboBox.BackColor = ErrorColor;
                 throw new Exception("Le champ \"" + Label + "\" doit être renseigné.");
+            }
             return comboBox.Text != "" ? _Output.Replace(Key, comboBox.Text) : "";
         }
 
@@ -232,9 +244,13 @@ namespace Parametre_sys_Helper
 
         public override string GetOutput()
         {
+            groupBox.BackColor = this.BackColor;
             if (IsMendatory)
                 if ((from x in checkBoxes where x.Checked select x).Count() == 0)
+                {
+                    groupBox.BackColor = ErrorColor;
                     throw new Exception("Au moins une des options du champ \"" + Label + "\" doit-être selectionnée.");
+                }
 
             string output = "";
             foreach (string c in (from x in checkBoxes where x.Checked select x.Text))
@@ -288,9 +304,13 @@ namespace Parametre_sys_Helper
 
         public override string GetOutput()
         {
+            groupBox.BackColor = this.BackColor;
             if (IsMendatory)
                 if ((from x in radioButtons where x.Checked select x).Count() == 0)
+                {
+                    groupBox.BackColor = ErrorColor;
                     throw new Exception("Une des options du champ \"" + Label + "\" doit-être selectionnée.");
+                }
 
             string output = (from x in radioButtons where x.Checked select x.Text).FirstOrDefault();
 
@@ -345,12 +365,31 @@ namespace Parametre_sys_Helper
             string tmp = "";
             foreach (Field field in fields)
             {
-                tmp += field.GetOutput() == "" ? "0" : "1";
-                output = output.Replace(field.Key, field.GetOutput());
+                string fieldOut = "";
+                try
+                {
+                    fieldOut = field.GetOutput();
+                }
+                catch (Exception ex)
+                {
+                    if (IsMendatory && field.IsMendatory)
+                        throw new Exception(ex.Message);
+                }
+
+                if (field.IsMendatory)
+                    tmp += fieldOut == "" ? "0" : "1";
+                output = output.Replace(field.Key, fieldOut);
             }
 
+            groupBox.BackColor = this.BackColor;
             if (tmp.Contains("0") && tmp.Contains("1"))
-                throw new Exception("Une ou plusieurs champs du groupe \"" + Label + "\" sont vide.");
+            {
+                groupBox.BackColor = ErrorColor;
+                throw new Exception("Un ou plusieurs champs du groupe \"" + Label + "\" sont vide.");
+            }
+
+            if (tmp.Contains("0"))
+                return "";
 
             return output;
         }

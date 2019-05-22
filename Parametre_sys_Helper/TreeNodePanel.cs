@@ -89,6 +89,8 @@ namespace Parametre_sys_Helper
 
             for (int i = 0; i < this.Level; i++)
                 ident += "\t";
+            if (Level != 0)
+                ident += "\t";
 
             try
             {
@@ -96,6 +98,7 @@ namespace Parametre_sys_Helper
             }
             catch (Exception ex)
             {
+                this.TreeView.SelectedNode = this;
                 throw new Exception(this.FullPath + " :\n" + ex.Message);
             }
 

@@ -1,17 +1,17 @@
 <grammar>
 	<type name='Parametre'>
-		<text>L'enregistrement {{__NOM__}} ("{{__DESC__}}") mnemonique "{{__DEFINE__}}" type de fichiers parametres "{{__TYPE_FICHIER__}}" qui contient les interfaces :\n\tL'interface "{{__VERSION__}}" qui est definit dans le composant parametre contient les donnees suivantes :{{_DEFINITION_CONTENU_}}</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='' default=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output='' default=''/>
-		<field ismendatory='true' input='textbox' label='Mnemonique' key='{{__DEFINE__}}' output=''/>
-		<field ismendatory='true' input='combobox' label='Type de fichiers' key='{{__TYPE_FICHIER__}}' output=''>
+		<text>{{__NOM__}}{{__DESC__}}{{__DEFINE__}}{{__TYPE_FICHIER__}}{{__VERSION__}}{{_DEFINITION_CONTENU_}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='L&apos;enregistrement {{__NOM__}}' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' ("{{__DESC__}}")' default=''/>
+		<field ismendatory='true' input='textbox' label='Mnemonique' key='{{__DEFINE__}}' output=' mnemonique "{{__DEFINE__}}"'/>
+		<field ismendatory='true' input='combobox' label='Type de fichiers' key='{{__TYPE_FICHIER__}}' output=' type de fichiers parametres "{{__TYPE_FICHIER__}}" qui contient les interfaces :'>
 			<option text='COMPOSANT_PARAMETRE'/>
 			<option text='APPLICATIFS'/>
 			<option text='BOOT'/>
 			<option text='FPGA'/>
 			<option text='TECHNIQUES'/>
 		</field>
-		<field ismendatory='true' input='textbox' label='Version' key='{{__VERSION__}}' output=''/>
+		<field ismendatory='true' input='textbox' label='Version' key='{{__VERSION__}}' output='\n\tL&apos;interface "{{__VERSION__}}" qui est definit dans le composant parametre contient les donnees suivantes :'/>
 	</type>
 	<type name='Champ Numerique'>
 		<text>{{__NOM__}}{{__DESC__}}{{__TAILLE__}}{{__CLE__}}{{__FORMAT_NUMERIC__}}{{__DEFINE__}}{{__FONCTION__}}</text>
@@ -34,7 +34,7 @@
 		<text>{{__NOM__}}{{__DESC__}}{{__TAILLE0__}}{{__CLE__}}{{__DEFINE__}}{{__FONCTION__}}</text>
 		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Text' default=''/>
 		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
-		<field ismendatory='false' input='groupbox' label='Taille' key='{{__TAILLE0__}}' output='{{__TAILLE1__}}'>
+		<field ismendatory='true' input='groupbox' label='Taille' key='{{__TAILLE0__}}' output='{{__TAILLE1__}}'>
 			<field ismendatory='true' input='radiobox' label='Type' key='{{__TAILLE1__}}' output=''>
 				<option text=' une taille de "{{__TAILLE__}}"'/>
 				<option text=' une longueur de champs "{{__TAILLE__}}" et un format chaine de caracteres "{{__CHARSET__}}"'/>
@@ -108,8 +108,8 @@
 		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
 		<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE1__}}' output=' une taille de "{{__TAILLE1__}}"'/>
 		<field ismendatory='false' input='groupbox' label='Pointeur' key='{{__POINTEUR__}}' output='{{__NOM_POINTEUR__}}{{__TYPE__}}{{__STRUCT__}}'>
-			<field ismendatory='false' input='textbox' label='Nom' key='{{__NOM_POINTEUR__}}' output=' un pointeur nomme "{{__NOM_POINTEUR__}}"'/>
-			<field ismendatory='false' input='textbox' label='Type' key='{{__TYPE__}}' output=' de type "{{__TYPE__}}"'/>
+			<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM_POINTEUR__}}' output=' un pointeur nomme "{{__NOM_POINTEUR__}}"'/>
+			<field ismendatory='true' input='textbox' label='Type' key='{{__TYPE__}}' output=' de type "{{__TYPE__}}"'/>
 			<field ismendatory='false' input='checkbox' label='' key='{{__STRUCT__}}' output=''>
 				<option text=' utilise la structure existante'/>
 			</field>
