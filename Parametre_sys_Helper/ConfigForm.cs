@@ -39,11 +39,17 @@ namespace Parametre_sys_Helper
 
             TreeNodePanel last = null;
 
+            while (definition.Contains(""))
+                definition.Remove("");
+
             for (int i = 0; i < definition.Count; i++)
             {
                 string def = definition[i];
                 int level = getLevel(ref def) + 1;
-                TreeNodePanel node = new TreeNodePanel(def);
+                if (def == "")
+                    continue;
+
+               TreeNodePanel node = new TreeNodePanel(def);
 
                 if (level == 1)
                 {
@@ -70,7 +76,7 @@ namespace Parametre_sys_Helper
         {
             scPanels.Panel2.Controls.Clear();
             scPanels.Panel2.Controls.Add(((TreeNodePanel)e.Node).Panel);
-            if (e.Node.Parent != null && e.Node.Nodes.Count > 0)
+            if (e.Node.Parent != null && e.Node.Nodes.Count > 0 && ((TreeNodePanel)e.Node).TypePanel.Text != "Champ Tableau")
                 ((TreeNodePanel)e.Node).SetType("Champ Tableau");
             else
                 ((TreeNodePanel)e.Node).RemoveType("Champ Tableau");
@@ -91,7 +97,14 @@ namespace Parametre_sys_Helper
 
         private void générerLeCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                new CodeForm(((TreeNodePanel)tvParametre.Nodes[0]).GetOutput()).Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

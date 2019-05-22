@@ -82,7 +82,10 @@ namespace Parametre_sys_Helper
                 _Output = Key;
             Label = xmlField.Attributes["label"].Value;
             label = new Label();
-            label.Text = Label != "" ? Label + " :" : "";
+            if (IsMendatory)
+                label.Text = Label != "" ? "*" + Label + " :" : "*";
+            else
+                label.Text = Label != "" ? Label + " :" : "";
             label.Location = new Point(0, 0);
             label.Size = new Size(150, label.Height);
             this.Controls.Add(label);
@@ -148,7 +151,7 @@ namespace Parametre_sys_Helper
         {
             if (IsMendatory && textBox.Text == "")
                 throw new Exception("Le champ \"" + Label + "\" ne peut pas être vide.");
-            return _Output.Replace(Key, textBox.Text);
+            return textBox.Text != "" ? _Output.Replace(Key, textBox.Text) : "";
         }
 
         protected override void Field_SizeChanged(object sender, EventArgs e)
@@ -183,7 +186,7 @@ namespace Parametre_sys_Helper
         {
             if (IsMendatory && !comboBox.Items.Contains(comboBox.Text))
                 throw new Exception("Le champ \"" + Label + "\" doit être renseigné.");
-            return _Output.Replace(Key, comboBox.Text);
+            return comboBox.Text != "" ? _Output.Replace(Key, comboBox.Text) : "";
         }
 
         protected override void Field_SizeChanged(object sender, EventArgs e)
@@ -297,6 +300,8 @@ namespace Parametre_sys_Helper
         protected override void Field_SizeChanged(object sender, EventArgs e)
         {
             groupBox.Size = new Size(-TypePanel.Margin + this.Width - TypePanel.Margin, groupBox.Height);
+            foreach (RadioButton radioButton in radioButtons)
+                radioButton.Size = new Size(-TypePanel.Margin + groupBox.Width - TypePanel.Margin, radioButton.Height);
         }
     }
 
@@ -337,8 +342,15 @@ namespace Parametre_sys_Helper
         public override string GetOutput()
         {
             string output = _Output;
+            string tmp = "";
             foreach (Field field in fields)
+            {
+                tmp += field.GetOutput() == "" ? "0" : "1";
                 output = output.Replace(field.Key, field.GetOutput());
+            }
+
+            if (tmp.Contains("0") && tmp.Contains("1"))
+                throw new Exception("Une ou plusieurs champs du groupe \"" + Label + "\" sont vide.");
 
             return output;
         }

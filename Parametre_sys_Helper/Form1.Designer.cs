@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.bGenererArbre = new System.Windows.Forms.Button();
             this.tbDefinition = new System.Windows.Forms.TextBox();
@@ -61,7 +60,6 @@
             this.tbDefinition.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbDefinition.Size = new System.Drawing.Size(236, 155);
             this.tbDefinition.TabIndex = 10;
-            this.tbDefinition.Text = resources.GetString("tbDefinition.Text");
             this.tbDefinition.WordWrap = false;
             // 
             // Form1

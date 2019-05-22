@@ -9,3 +9,7 @@ C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Help
 C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.pdb
 C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.ConfigForm.resources
 C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\grammaire.xml
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\FastColoredTextBox.dll
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\bin\Debug\FastColoredTextBox.xml
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.CodeForm.resources
+C:\Users\ylokhat\Documents\Visual Studio 2017\Projects\_Astek\Parametre_sys_Helper\Parametre_sys_Helper\obj\Debug\Parametre_sys_Helper.csproj.CopyComplete

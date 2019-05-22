@@ -70,7 +70,7 @@ namespace Parametre_sys_Helper
                 TypePanel = null;
             }
 
-            TypePanel = new TypePanel(ConfigForm.Grammar.SelectSingleNode("//type[@name='" + comboBox.Text + "']").OuterXml.Replace("default=''", "default='" + Text + "'"));
+            TypePanel = new TypePanel(ConfigForm.Grammar.SelectSingleNode("//type[@name='" + comboBox.Text + "']").OuterXml.Replace("default=\"\"", "default='" + Text.Replace("'", "&apos;") + "'"));
             TypePanel.Location = new System.Drawing.Point(0, Math.Max(label.Height, comboBox.Height) + TypePanel.Margin);
             Panel.Controls.Add(TypePanel);
             Panel_SizeChanged(null, null);
@@ -80,6 +80,36 @@ namespace Parametre_sys_Helper
         {
             comboBox.Size = new System.Drawing.Size(Panel.Width - TypePanel.Margin - label.Location.X - label.Width - TypePanel.Margin, comboBox.Height);
             TypePanel.Size = new System.Drawing.Size(Panel.Width, Panel.Height - TypePanel.Margin - Math.Max(label.Height, comboBox.Height) - TypePanel.Margin);
+        }
+
+        public string GetOutput()
+        {
+            string ident = "";
+            string output = "";
+
+            for (int i = 0; i < this.Level; i++)
+                ident += "\t";
+
+            try
+            {
+                output = ident + TypePanel.Output.Replace("\\n", "\n").Replace("\\t", "\t") + "\n";
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(this.FullPath + " :\n" + ex.Message);
+            }
+
+            string content = "\n";
+            if (Nodes.Count > 0 && Level != 0)
+                content += ident + "{\n";
+
+            foreach (TreeNodePanel node in Nodes)
+                content += node.GetOutput();
+
+            if (Nodes.Count > 0 && Level != 0)
+                content += ident + "}";
+
+            return output.Replace("{{_DEFINITION_CONTENU_}}", content);
         }
     }
 }

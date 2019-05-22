@@ -1,11 +1,8 @@
 <grammar>
 	<type name='Parametre'>
-		<text>
-			L'enregistrement {{__NOM__}} ("{{__DESC__}}") mnemonique "{{__DEFINE__}}" type de fichiers parametres "{{__TYPE_FICHIER__}}" qui contient les interfaces :
-			L'interface "{{__VERSION__}}" qui est definit dans le composant parametre contient les donnees suivantes :
-		</text>
+		<text>L'enregistrement {{__NOM__}} ("{{__DESC__}}") mnemonique "{{__DEFINE__}}" type de fichiers parametres "{{__TYPE_FICHIER__}}" qui contient les interfaces :\n\tL'interface "{{__VERSION__}}" qui est definit dans le composant parametre contient les donnees suivantes :{{_DEFINITION_CONTENU_}}</text>
 		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='' default=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output='' default=''/>
 		<field ismendatory='true' input='textbox' label='Mnemonique' key='{{__DEFINE__}}' output=''/>
 		<field ismendatory='true' input='combobox' label='Type de fichiers' key='{{__TYPE_FICHIER__}}' output=''>
 			<option text='COMPOSANT_PARAMETRE'/>
@@ -17,18 +14,16 @@
 		<field ismendatory='true' input='textbox' label='Version' key='{{__VERSION__}}' output=''/>
 	</type>
 	<type name='Champ Numerique'>
-		<text>
-			La balise {{__NOM__}} de type Numeric a pour description "{{__DESC__}}", une taille de "{{__TAILLE__}}"{{__CLE__}}{{__FORMAT_NUMERIC__}}{{__DEFINE__}}{{__FONCTION__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE__}}' output=''/>
-		<field ismendatory='false' input='textbox' label='Clé' key='{{__CLE__}}' output=''/>
+		<text>{{__NOM__}}{{__DESC__}}{{__TAILLE__}}{{__CLE__}}{{__FORMAT_NUMERIC__}}{{__DEFINE__}}{{__FONCTION__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Numeric' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
+		<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE__}}' output=' une taille de "{{__TAILLE__}}"'/>
+		<field ismendatory='false' input='textbox' label='Clé' key='{{__CLE__}}' output=' et la cle est "{{__CLE__}}"'/>
 		<field ismendatory='false' input='combobox' label='Format' key='{{__FORMAT_NUMERIC__}}' output=' et un format numerique "{{__FORMAT_NUMERIC__}}"'>
 			<option text='DEC'/>
 			<option text='BCD'/>
 		</field>
-		<field ismendatory='false' input='textbox' label='Constante' key='{{__DEFINE__}}' output=' defini par la constante"{{__DEFINE__}}"'/>
+		<field ismendatory='false' input='textbox' label='Constante' key='{{__DEFINE__}}' output=' defini par la constante "{{__DEFINE__}}"'/>
 		<field ismendatory='false' input='checkbox' label='Fonction de recherche' key='{{__FONCTION__}}' output=''>
 			<option text=' ne fournira pas de fonction de recuperation de liste'/>
 			<option text=' ne fournira pas de fonction de recuperation de la donnee'/>
@@ -36,15 +31,13 @@
 		</field>
 	</type>
 	<type name='Champ Texte'>
-		<text>
-			La balise {{__NOM__}} de type Text a pour description "{{__DESC__}}",{{__TAILLE0__}}{{__CLE__}}{{__DEFINE__}}{{__FONCTION__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
+		<text>{{__NOM__}}{{__DESC__}}{{__TAILLE0__}}{{__CLE__}}{{__DEFINE__}}{{__FONCTION__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Text' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
 		<field ismendatory='false' input='groupbox' label='Taille' key='{{__TAILLE0__}}' output='{{__TAILLE1__}}'>
 			<field ismendatory='true' input='radiobox' label='Type' key='{{__TAILLE1__}}' output=''>
-				<option text='une taille de "{{__TAILLE__}}"'/>
-				<option text='une longueur de champs "{{__TAILLE__}}"\n et un format chaine de caracteres "{{__CHARSET__}}"'/>
+				<option text=' une taille de "{{__TAILLE__}}"'/>
+				<option text=' une longueur de champs "{{__TAILLE__}}" et un format chaine de caracteres "{{__CHARSET__}}"'/>
 			</field>
 			<field ismendatory='true' input='textbox' label='Taille ({{__TAILLE__}})' key='{{__TAILLE__}}' output=''/>
 			<field ismendatory='false' input='combobox' label='Format ({{__CHARSET__}})' key='{{__CHARSET__}}' output=''>
@@ -56,7 +49,7 @@
 			</field>
 		</field>
 		<field ismendatory='false' input='textbox' label='Clé' key='{{__CLE__}}' output=' et la cle est "{{__CLE__}}"'/>
-		<field ismendatory='false' input='textbox' label='Constante' key='{{__DEFINE__}}' output=' defini par la constante"{{__DEFINE__}}"'/>
+		<field ismendatory='false' input='textbox' label='Constante' key='{{__DEFINE__}}' output=' defini par la constante "{{__DEFINE__}}"'/>
 		<field ismendatory='false' input='checkbox' label='Fonction de recherche' key='{{__FONCTION__}}' output=''>
 			<option text=' ne fournira pas de fonction de recuperation de liste'/>
 			<option text=' ne fournira pas de fonction de recuperation de la donnee'/>
@@ -64,12 +57,10 @@
 		</field>
 	</type>
 	<type name='Champ Date'>
-		<text>
-			La balise {{__NOM__}} de type Date a pour description "{{__DESC__}}" et un format date "{{__FORMAT_DATE__}}"{{__CLE__}}{{__FONCTION__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
-		<field ismendatory='true' input='combobox' label='Format' key='{{__FORMAT_DATE__}}' output=''>
+		<text>{{__NOM__}}{{__DESC__}}{{__FORMAT_DATE__}}{{__CLE__}}{{__FONCTION__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Date' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
+		<field ismendatory='true' input='combobox' label='Format' key='{{__FORMAT_DATE__}}' output=' et un format date "{{__FORMAT_DATE__}}"'>
 			<option text='YYYYMMDD'/>
 		</field>
 		<field ismendatory='false' input='textbox' label='Clé' key='{{__CLE__}}' output=' et la cle est "{{__CLE__}}"'/>
@@ -80,12 +71,10 @@
 		</field>
 	</type>
 	<type name='Champ Heure'>
-		<text>
-			La balise {{__NOM__}} de type Hour a pour description "{{__DESC__}}" et un format heure "{{__FORMAT_HEURE__}}"{{__CLE__}}{{__FONCTION__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
-		<field ismendatory='true' input='combobox' label='Format' key='{{__FORMAT_HEURE__}}' output=''>
+		<text>{{__NOM__}}{{__DESC__}}{{__FORMAT_HEURE__}}{{__CLE__}}{{__FONCTION__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Hour' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}"' default=''/>
+		<field ismendatory='true' input='combobox' label='Format' key='{{__FORMAT_HEURE__}}' output=' et un format heure "{{__FORMAT_HEURE__}}"'>
 			<option text='HHMI'/>
 			<option text='HHMISS'/>
 		</field>
@@ -97,18 +86,16 @@
 		</field>
 	</type>
 	<type name='Champ Buffer'>
-		<text>
-			La balise {{__NOM__}} de type Buffer a pour description "{{__DESC__}}" et un type de buffer "{{__{{__TYPE__}}_BUFFER__}}" et un fieldssize de "{{__TAILLE__}}"{{__FONCTION__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
-		<field ismendatory='true' input='combobox' label='Type' key='{{__TYPE_BUFFER__}}' output=''>
+		<text>{{__NOM__}}{{__DESC__}}{{__TYPE_BUFFER__}}{{__TAILLE__}}{{__FONCTION__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Buffer' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}"' default=''/>
+		<field ismendatory='true' input='combobox' label='Type' key='{{__TYPE_BUFFER__}}' output=' et un type de buffer "{{__TYPE_BUFFER__}}"'>
 			<option text='ZIP'/>
 			<option text='unknown'/>
 			<option text='MRT'/>
 			<option text='Image'/>
 		</field>
-		<field ismendatory='true' input='textbox' label='FieldSize' key='{{__TAILLE__}}' output=''/>
+		<field ismendatory='true' input='textbox' label='FieldSize' key='{{__TAILLE__}}' output=' et un fieldssize de "{{__TAILLE__}}"'/>
 		<field ismendatory='false' input='checkbox' label='Fonction de recherche' key='{{__FONCTION__}}' output=''>
 			<option text=' ne fournira pas de fonction de recuperation de liste'/>
 			<option text=' ne fournira pas de fonction de recuperation de la donnee'/>
@@ -116,20 +103,18 @@
 		</field>
 	</type>
 	<type name='Champ Tableau'>
-		<text>
-			La balise {{__NOM1__}} de type Subrecord a pour description "{{__DESC__}}", une taille de "{{__TAILLE1__}}"{{__POINTEUR__}}{{__TAILLE2__}}{{__FAMILLE__}} {}{{__FONCTION__}}{{__OFFSET__}}
-		</text>
-		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=''/>
-		<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE1__}}' output=''/>
-		<field ismendatory='false' input='groupbox' label='Pointeur' key='{{__POINTEUR__}}' output='un pointeur nomme "{{__NOM_POINTEUR__}}" de type"{{__TYPE__}}"{{__STRUCT__}}'>
-			<field ismendatory='false' input='textbox' label='Nom' key='{{__NOM_POINTEUR__}}' output=''/>
-			<field ismendatory='false' input='textbox' label='Type' key='{{__TYPE__}}' output=''/>
+		<text>{{__NOM__}}{{__DESC__}}{{__TAILLE1__}}{{__POINTEUR__}}{{__TAILLE2__}}{{__FAMILLE__}}{{_DEFINITION_CONTENU_}}{{__FONCTION__}}{{__OFFSET__}}</text>
+		<field ismendatory='true' input='textbox' label='Nom' key='{{__NOM__}}' output='La balise {{__NOM__}} de type Subrecord' default=''/>
+		<field ismendatory='true' input='textbox' label='Description' key='{{__DESC__}}' output=' a pour description "{{__DESC__}}",' default=''/>
+		<field ismendatory='true' input='textbox' label='Taille' key='{{__TAILLE1__}}' output=' une taille de "{{__TAILLE1__}}"'/>
+		<field ismendatory='false' input='groupbox' label='Pointeur' key='{{__POINTEUR__}}' output='{{__NOM_POINTEUR__}}{{__TYPE__}}{{__STRUCT__}}'>
+			<field ismendatory='false' input='textbox' label='Nom' key='{{__NOM_POINTEUR__}}' output=' un pointeur nomme "{{__NOM_POINTEUR__}}"'/>
+			<field ismendatory='false' input='textbox' label='Type' key='{{__TYPE__}}' output=' de type "{{__TYPE__}}"'/>
 			<field ismendatory='false' input='checkbox' label='' key='{{__STRUCT__}}' output=''>
 				<option text=' utilise la structure existante'/>
 			</field>
 		</field>
-		<field ismendatory='false' input='textbox' label='Longueur taille de champs' key='{{__TAILLE2__}}' output=' , la longueur taille de champs "{{__TAILLE2__}}"'/>
+		<field ismendatory='false' input='textbox' label='Longueur taille de champs' key='{{__TAILLE2__}}' output=', la longueur taille de champs "{{__TAILLE2__}}"'/>
 		<field ismendatory='false' input='combobox' label='Famille' key='{{__FAMILLE__}}' output=' , un fichier famille "{{__FAMILLE__}}"'>
 			<option text='After'/>
 			<option text='Before'/>
