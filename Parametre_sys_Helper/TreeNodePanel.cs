@@ -18,6 +18,9 @@ namespace Parametre_sys_Helper
 
         public TreeNodePanel(string text, bool isRoot = false) : base(text)
         {
+            while (text.EndsWith(" ") || text.EndsWith("\t"))
+                text = text.Substring(0, text.Length - 1);
+
             this.Text = this.Name = text;
 
             label = new Label();
@@ -70,7 +73,8 @@ namespace Parametre_sys_Helper
                 TypePanel = null;
             }
 
-            TypePanel = new TypePanel(ConfigForm.Grammar.SelectSingleNode("//type[@name='" + comboBox.Text + "']").OuterXml.Replace("default=\"\"", "default='" + Text.Replace("'", "&apos;") + "'"));
+            string text = Text.Replace("'", "&apos;");
+            TypePanel = new TypePanel(ConfigForm.Grammar.SelectSingleNode("//type[@name='" + comboBox.Text + "']").OuterXml.Replace("default=\"\"", "default='" + text + "'"));
             TypePanel.Location = new System.Drawing.Point(0, Math.Max(label.Height, comboBox.Height) + TypePanel.Margin);
             Panel.Controls.Add(TypePanel);
             Panel_SizeChanged(null, null);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -105,6 +106,11 @@ namespace Parametre_sys_Helper
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void developpéParYassinLOKHATToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.linkedin.com/in/yassin-lokhat");
         }
     }
 }

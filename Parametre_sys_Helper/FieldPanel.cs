@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -130,6 +131,49 @@ namespace Parametre_sys_Helper
                     return new Field(xmlCode);
             }
         }
+
+        public static string Normalize(string name)
+        {
+            string[] toRemove = { " De ", " Du ", " Des ", " D'", " Le ", " La ", " Les ", " L'", " Au ", " Aux ", " A ", " ",  };
+
+            name = RemoveDiacritics(name);
+
+            int i = name.IndexOf(' ', 0);
+            while (i != -1)
+            {
+                name = name.Substring(0, i) + " " + name.Substring(i + 1, 1).ToUpper() + name.Substring(i + 2);
+                i = name.IndexOf(' ', i + 1);
+            }
+
+            i = name.IndexOf('\'', 0);
+            while (i != -1)
+            {
+                name = name.Substring(0, i) + "\'" + name.Substring(i + 1, 1).ToUpper() + name.Substring(i + 2);
+                i = name.IndexOf('\'', i + 1);
+            }
+
+            foreach (string s in toRemove)
+                name = name.Replace(s, "");
+
+            return name;
+        }
+
+        static string RemoveDiacritics(string stIn)
+        {
+            string stFormD = stIn.Normalize(NormalizationForm.FormD);
+            StringBuilder sb = new StringBuilder();
+
+            for (int ich = 0; ich < stFormD.Length; ich++)
+            {
+                UnicodeCategory uc = CharUnicodeInfo.GetUnicodeCategory(stFormD[ich]);
+                if (uc != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(stFormD[ich]);
+                }
+            }
+
+            return (sb.ToString().Normalize(NormalizationForm.FormC));
+        }
     }
 
     public class TextBoxField : Field
@@ -145,7 +189,12 @@ namespace Parametre_sys_Helper
             textBox = new TextBox();
             textBox.Location = new Point(label.Location.X + label.Width + TypePanel.Margin, label.Location.Y);
 
-            try { textBox.Text = xmlField.Attributes["default"].Value; } catch { textBox.Text = ""; }
+            try
+            {
+                textBox.Text = xmlField.Attributes["default"].Value;
+                if (Key == "{{__NOM__}}")
+                    textBox.Text = Field.Normalize(textBox.Text);
+            } catch { textBox.Text = ""; }
 
             this.Controls.Add(textBox);
         }

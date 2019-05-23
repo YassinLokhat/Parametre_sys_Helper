@@ -32,6 +32,7 @@
             this.tvParametre = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.générerLeCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.developpéParYassinLOKHATToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.scPanels)).BeginInit();
             this.scPanels.Panel1.SuspendLayout();
             this.scPanels.SuspendLayout();
@@ -67,7 +68,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.générerLeCodeToolStripMenuItem});
+            this.générerLeCodeToolStripMenuItem,
+            this.developpéParYassinLOKHATToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -81,6 +83,14 @@
             this.générerLeCodeToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.générerLeCodeToolStripMenuItem.Text = "Générer le code";
             this.générerLeCodeToolStripMenuItem.Click += new System.EventHandler(this.générerLeCodeToolStripMenuItem_Click);
+            // 
+            // developpéParYassinLOKHATToolStripMenuItem
+            // 
+            this.developpéParYassinLOKHATToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.developpéParYassinLOKHATToolStripMenuItem.Name = "developpéParYassinLOKHATToolStripMenuItem";
+            this.developpéParYassinLOKHATToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
+            this.developpéParYassinLOKHATToolStripMenuItem.Text = "Developpé par Yassin LOKHAT";
+            this.developpéParYassinLOKHATToolStripMenuItem.Click += new System.EventHandler(this.developpéParYassinLOKHATToolStripMenuItem_Click);
             // 
             // ConfigForm
             // 
@@ -110,5 +120,6 @@
         private System.Windows.Forms.TreeView tvParametre;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem générerLeCodeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem developpéParYassinLOKHATToolStripMenuItem;
     }
 }
